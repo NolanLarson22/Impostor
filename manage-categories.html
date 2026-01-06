@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Custom Categories</title>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-setup.css">
+    <style>
+        .custom-category-container {
+            max-width: 900px;
+            width: 100%;
+        }
+        
+        .no-categories {
+            font-size: 1.8rem;
+            padding: 3rem;
+            text-align: center;
+            opacity: 0.7;
+        }
+        
+        .category-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .category-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 0, 64, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            position: relative;
+        }
+        
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .category-name {
+            font-size: 2rem;
+            color: #ff0040;
+        }
+        
+        .category-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .category-actions button {
+            font-family: 'Bangers', cursive;
+            font-size: 1.4rem;
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            letter-spacing: 0.1em;
+            transition: all 0.2s;
+        }
+        
+        .edit-btn {
+            background: linear-gradient(145deg, #3498db, #2980b9);
+            color: white;
+        }
+        
+        .edit-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(145deg, #5dade2, #3498db);
+        }
+        
+        .delete-btn {
+            background: linear-gradient(145deg, #e74c3c, #c0392b);
+            color: white;
+        }
+        
+        .delete-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(145deg, #ff6b5a, #e74c3c);
+        }
+        
+        .category-stats {
+            font-size: 1.5rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+        
+        .back-btn {
+            font-family: 'Bangers', cursive;
+            font-size: clamp(1.4rem, 4vw, 2.2rem);
+            padding: clamp(0.8rem, 2vw, 1.2rem) clamp(2rem, 5vw, 4rem);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: all 0.3s;
+            background: linear-gradient(145deg, #95a5a6, #7f8c8d);
+            color: white;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            width: 100%;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: linear-gradient(145deg, #a8b8b9, #95a5a6);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>IMPOSTOR</h1>
+        <h2>Manage Custom Categories</h2>
+        
+        <div class="step">
+            <div class="custom-category-container">
+                <div id="categories-list"></div>
+                <button class="back-btn" id="back-btn">Back</button>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="script-manage-categories.js"></script>
+</body>
+</html>

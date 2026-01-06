@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Impostor - Reveal Your Word</title>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-roles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>IMPOSTOR</h1>
+        <h2>Tap Your Name to See Your Secret Word</h2>
+        <p class="instruction">
+            Pass the device to each player one by one.<br>
+            <strong>Do NOT let anyone else see your screen!</strong>
+        </p>
+
+        <div id="players-grid" class="players-grid"></div>
+
+        <!-- Full-screen reveal -->
+        <div id="reveal-screen" class="reveal-overlay hidden">
+            <div class="reveal-content" id="reveal-content">
+                <div id="category-name" class="category-label"></div>
+                <div id="imposter-title" class="imposter-title hidden">IMPOSTOR</div>
+                <div id="crew-word" class="crew-word"></div>
+                <p id="imposter-hint" class="hint-text hidden">Hint: <span id="hint-word"></span></p>
+                <button id="pass-btn" class="big-button">PRESS TO FLIP</button>
+            </div>
+        </div>
+
+        <button id="start-discussion-btn" class="big-button hidden">VOTE</button>
+    </div>
+
+    <script src="script-roles.js"></script>
+</body>
+</html>
