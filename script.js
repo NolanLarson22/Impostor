@@ -120,7 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
         playerCountStep.classList.add('hidden');
         nameEntryStep.classList.remove('hidden');
 
-        addPlayerCard(); // Start with first card
+        // Create all player cards at once
+        for (let i = 0; i < totalPlayers; i++) {
+            addPlayerCard();
+        }
     });
 
     function addPlayerCard() {
@@ -156,13 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateProceedButton();
     }
 
-    // Add next player when pressing Enter
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' && players.length < totalPlayers) {
-            e.preventDefault();
-            addPlayerCard();
-        }
-    });
+    // Enter key functionality removed - all cards are displayed at once
 
     function updateProceedButton() {
         const allHaveNames = players.every(p => p.name && p.name.trim() !== '');

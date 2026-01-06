@@ -74,6 +74,7 @@ h2 {
     backdrop-filter: none;
     box-shadow: none;
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 .hidden {
@@ -109,7 +110,7 @@ select option {
 }
 
 p {
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
     margin-bottom: 2rem;
     letter-spacing: 0.1em;
 }
@@ -164,6 +165,7 @@ p {
 
 .controls {
     margin-top: 3rem;
+    text-align: center;
 }
 
 .big-button {
@@ -179,6 +181,8 @@ p {
     background: linear-gradient(145deg, #ff0040, #cc0033);
     box-shadow: 0 15px 35px rgba(255,0,64,0.5);
     color: #ffffff;
+    width: 100%;
+    max-width: 100%;
 }
 
 .big-button:hover:not(:disabled) {
