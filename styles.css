@@ -5,7 +5,7 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,8 +14,10 @@ body {
     background-attachment: fixed;
     font-family: 'Bangers', cursive;
     color: #fff;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     position: relative;
+    padding: 2rem 1rem;
 }
 
 /* Animated starry background */
