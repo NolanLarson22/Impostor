@@ -19,6 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let totalPlayers = 5;
     let players = [];
     
+    // Check if we should jump to category step
+    const urlParams = new URLSearchParams(window.location.search);
+    const stepParam = urlParams.get('step');
+    
     // Function definitions and event listeners need to be set up before early returns
     function populateCategoryDropdown() {
         // populate categories with Random option and custom categories
@@ -90,6 +94,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const skipToCategorySelection = sessionStorage.getItem('skipToCategorySelection');
     if (skipToCategorySelection === 'true') {
         sessionStorage.removeItem('skipToCategorySelection');
+        const savedPlayers = JSON.parse(localStorage.getItem('imposterPlayers') || '[]');
+        if (savedPlayers.length > 0) {
+            totalPlayers = savedPlayers.length;
+            players = savedPlayers.map(name => ({ name }));
+            
+            // Hide steps 1 and 2, show step 3
+            playerCountStep.classList.add('hidden');
+            nameEntryStep.classList.add('hidden');
+            categoryStep.classList.remove('hidden');
+            
+            // Populate category dropdown
+            populateCategoryDropdown();
+            // Don't return yet - we need to set up event listeners below
+        }
+    } else if (stepParam === 'category') {
+        // Coming back from roles page via back button
         const savedPlayers = JSON.parse(localStorage.getItem('imposterPlayers') || '[]');
         if (savedPlayers.length > 0) {
             totalPlayers = savedPlayers.length;
