@@ -8,10 +8,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Impostor">
     <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-    <link rel="shortcut icon" href="icons/favicon.ico">
+    <link rel="apple-touch-icon" href="/Impostor/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Impostor/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Impostor/icons/favicon-16x16.png">
+    <link rel="shortcut icon" href="/Impostor/icons/favicon.ico">
     <title>Impostor - Setup</title>
     <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Bangers&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles-setup.css">
@@ -26,9 +26,9 @@
         <div id="player-count-step" class="step">
             <label for="playerCount">Number of Players:</label>
             <select id="playerCount">
-                <option value="3">3</option>
+                <option value="3" selected>3</option>
                 <option value="4">4</option>
-                <option value="5" selected>5</option>
+                <option value="5">5</option>
                 <option value="6">6</option>
                 <option value="7">7</option>
                 <option value="8">8</option>
@@ -40,7 +40,7 @@
 
         <!-- Step 2: Add player names -->
         <div id="name-entry-step" class="step hidden">
-            <p>Add player names (<span id="currentCount">0</span> / <span id="totalCount">5</span>)</p>
+            <p>Add player names (<span id="currentCount">0</span> / <span id="totalCount">3</span>)</p>
 
             <div id="players-container" class="players-grid"></div>
 

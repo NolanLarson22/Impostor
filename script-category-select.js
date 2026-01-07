@@ -35,21 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         categorySelect.appendChild(opt);
     });
     
-    // Add custom categories
-    if (customCategoryNames.length > 0) {
-        const separator = document.createElement('option');
-        separator.disabled = true;
-        separator.textContent = '--- Custom Categories ---';
-        categorySelect.appendChild(separator);
-        
-        customCategoryNames.forEach(cat => {
-            const opt = document.createElement('option');
-            opt.value = 'CUSTOM:' + cat;
-            opt.textContent = cat;
-            categorySelect.appendChild(opt);
-        });
-    }
-    
     // Add Random option
     const randomOpt = document.createElement('option');
     randomOpt.value = 'Random';
@@ -62,11 +47,26 @@ document.addEventListener('DOMContentLoaded', () => {
     createOpt.textContent = 'New Category';
     categorySelect.appendChild(createOpt);
     
-    // Add "Manage Categories" option at the end
+    // Add "Manage Categories" option
     const manageOpt = document.createElement('option');
     manageOpt.value = 'MANAGE_CATEGORIES';
     manageOpt.textContent = 'Manage Custom Categories';
     categorySelect.appendChild(manageOpt);
+    
+    // Add custom categories
+    if (customCategoryNames.length > 0) {
+        const separator = document.createElement('option');
+        separator.disabled = true;
+        separator.textContent = 'Custom Categories';
+        categorySelect.appendChild(separator);
+        
+        customCategoryNames.forEach(cat => {
+            const opt = document.createElement('option');
+            opt.value = 'CUSTOM:' + cat;
+            opt.textContent = cat;
+            categorySelect.appendChild(opt);
+        });
+    }
 
     // Populate impostor count options with Random option (allow up to totalPlayers)
     impostorCountSelect.innerHTML = '';

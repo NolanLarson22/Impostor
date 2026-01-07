@@ -25,11 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const categoryData = customCategories[categoryName];
             const wordCount = Object.keys(categoryData).length;
             const totalHints = Object.values(categoryData).reduce((sum, hints) => sum + hints.length, 0);
+            const displayName = categoryName.length > 8 ? categoryName.substring(0, 8) + '...' : categoryName;
             
             return `
                 <div class="category-item" data-category="${categoryName}">
                     <div class="category-header">
-                        <div class="category-name">⭐ ${categoryName}</div>
+                        <div class="category-name">${displayName}</div>
                         <div class="category-actions">
                             <button class="edit-btn" data-category="${categoryName}">Edit</button>
                             <button class="delete-btn" data-category="${categoryName}">Delete</button>

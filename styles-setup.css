@@ -110,13 +110,13 @@ h1 {
 
 h2 {
     font-size: 2.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     letter-spacing: 0.1em;
 }
 
 .step {
     background: transparent;
-    padding: 3rem;
+    padding: 1rem;
     border-radius: 20px;
     backdrop-filter: none;
     box-shadow: none;

@@ -36,21 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
             categorySelect.appendChild(opt);
         });
         
-        // Add custom categories
-        if (customCategoryNames.length > 0) {
-            const separator = document.createElement('option');
-            separator.disabled = true;
-            separator.textContent = '--- Custom Categories ---';
-            categorySelect.appendChild(separator);
-            
-            customCategoryNames.forEach(cat => {
-                const opt = document.createElement('option');
-                opt.value = 'CUSTOM:' + cat;
-                opt.textContent = cat;
-                categorySelect.appendChild(opt);
-            });
-        }
-        
         // Add Random option
         const randomOpt = document.createElement('option');
         randomOpt.value = 'Random';
@@ -63,11 +48,26 @@ document.addEventListener('DOMContentLoaded', () => {
         createOpt.textContent = 'New Category';
         categorySelect.appendChild(createOpt);
         
-        // Add "Manage Categories" option at the end
+        // Add "Manage Categories" option
         const manageOpt = document.createElement('option');
         manageOpt.value = 'MANAGE_CATEGORIES';
         manageOpt.textContent = 'Manage Custom Categories';
         categorySelect.appendChild(manageOpt);
+        
+        // Add custom categories
+        if (customCategoryNames.length > 0) {
+            const separator = document.createElement('option');
+            separator.disabled = true;
+            separator.textContent = 'Custom Categories';
+            categorySelect.appendChild(separator);
+            
+            customCategoryNames.forEach(cat => {
+                const opt = document.createElement('option');
+                opt.value = 'CUSTOM:' + cat;
+                opt.textContent = cat;
+                categorySelect.appendChild(opt);
+            });
+        }
 
         // populate impostor count options with Random option (allow up to totalPlayers)
         impostorCountSelect.innerHTML = '';
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = document.createElement('div');
         card.className = 'player-card';
         card.innerHTML = `
-            <input type="text" value="${defaultName}" placeholder="Enter name..." maxlength="7">
+            <input type="text" value="" placeholder="${defaultName}" maxlength="7">
             <div class="player-number">#${index + 1}</div>
         `;
 
@@ -149,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Auto-focus the new input
         setTimeout(() => {
             input.focus();
-            input.select();
         }, 100);
 
         playersContainer.appendChild(card);
