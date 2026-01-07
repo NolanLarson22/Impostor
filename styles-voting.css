@@ -310,10 +310,12 @@ h4 { font-size: clamp(2rem, 6vw, 2.5rem); margin: 2rem 0 1rem; }
     width: clamp(2rem, 5vw, 3rem);
 }
 .leaderboard-name { 
-    flex: 0 1 auto;
+    flex: 1 1 auto;
     text-align: left; 
     padding-left: 0.5rem;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     min-width: 0;
     max-width: 8ch;
 }
@@ -323,7 +325,7 @@ h4 { font-size: clamp(2rem, 6vw, 2.5rem); margin: 2rem 0 1rem; }
     font-size: clamp(1.8rem, 5vw, 2.2rem);
     display: flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.5rem;
     flex-shrink: 0;
     white-space: nowrap;
     margin-left: auto;
@@ -331,16 +333,18 @@ h4 { font-size: clamp(2rem, 6vw, 2.5rem); margin: 2rem 0 1rem; }
 
 .score-gain {
     color: #00ff88;
-    font-size: clamp(1.8rem, 5vw, 2.2rem);
-    margin-right: 0.5rem;
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
     font-weight: bold;
+    flex-shrink: 0;
+    min-width: 2.5ch;
 }
 
 .score-loss {
     color: #ff4488;
-    font-size: clamp(1.8rem, 5vw, 2.2rem);
-    margin-right: 0.5rem;
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
     font-weight: bold;
+    flex-shrink: 0;
+    min-width: 2.5ch;
 }
 
 .result-buttons {
