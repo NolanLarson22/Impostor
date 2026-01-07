@@ -5,10 +5,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveCategoryBtn = document.getElementById('save-category-btn');
     const cancelBtn = document.getElementById('cancel-btn');
     const validationMessage = document.getElementById('validation-message');
+    const customBackBtn = document.getElementById('custom-back-btn');
 
     let wordCount = 0;
     const editingCategoryName = sessionStorage.getItem('editingCategory');
     let isEditMode = false;
+
+    // Handle back button
+    const returnUrl = sessionStorage.getItem('customCategoryReturn') || 'setup.html';
+    if (customBackBtn) {
+        customBackBtn.addEventListener('click', () => {
+            sessionStorage.removeItem('editingCategory');
+            sessionStorage.removeItem('customCategoryReturn');
+            window.location.replace(returnUrl);
+        });
+    }
 
     function createWordEntry(wordText = '', hints = []) {
         wordCount++;
@@ -135,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (confirm('Are you sure you want to cancel? Your custom category will not be saved.')) {
             const returnUrl = sessionStorage.getItem('customCategoryReturnUrl') || 'setup.html';
             sessionStorage.removeItem('customCategoryReturnUrl');
-            window.location.href = returnUrl;
+            window.location.replace(returnUrl);
         }
     });
 

@@ -4,12 +4,19 @@
     box-sizing: border-box;
 }
 
-html {
-    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-    background-attachment: fixed;
+html, body {
+    /* Ensure the background covers the entire viewport including the status bar */
+    height: 100%;
+    width: 100%;
+    background-color: #090a0f; /* Fallback color matching your gradient top */
+    color: #fff;
 }
 
 body {
+    padding: max(2rem, env(safe-area-inset-top)) 
+             max(1rem, env(safe-area-inset-right)) 
+             max(2rem, env(safe-area-inset-bottom)) 
+             max(1rem, env(safe-area-inset-left));
     min-height: 100vh;
     display: flex;
     flex-direction: column;

@@ -6,10 +6,17 @@
 
 html, body {
     height: 100%;
+    width: 100%;
+    background-color: #090a0f; /* Fallback color matching your gradient top */
+    color: #fff;
     overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 body {
+        padding: max(2rem, env(safe-area-inset-top)) 
+             max(1rem, env(safe-area-inset-right)) 
+             max(2rem, env(safe-area-inset-bottom)) 
+             max(1rem, env(safe-area-inset-left));
     min-height: 100vh;
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     font-family: 'Bangers', cursive;
@@ -53,14 +60,50 @@ body::before {
     max-width: 1000px;
     margin: 0 auto;
     padding: 1rem 0;
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    top: -0.5rem;
+    left: -0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fff;
+    font-size: 1.3rem;
+    z-index: 10;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.back-button::before {
+    content: '←';
 }
 
 h1 {
     font-family: 'Creepster', cursive;
     font-size: clamp(3.5rem, 10vw, 8rem);
     margin-bottom: 0.5rem;
-    text-shadow: 0 0 30px #ff0040, 0 0 60px #ff0040;
+    padding: 0.5rem;
+    text-shadow: 
+        0 0 20px rgba(255, 0, 64, 0.8),
+        0 0 40px rgba(255, 0, 64, 0.6),
+        0 0 60px rgba(255, 0, 64, 0.4);
     animation: titleGlow 3s ease-in-out infinite alternate;
+    overflow: visible;
+    line-height: 1.2;
 }
 
 @keyframes titleGlow {

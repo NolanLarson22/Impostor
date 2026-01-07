@@ -259,17 +259,17 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('imposterRound', JSON.stringify(newRound));
 
         // Navigate to reveal
-        window.location.href = 'roles.html';
+        window.location.replace('roles.html');
     });
 
     // Change Category: Keep players and scores, choose new category
     changeCategoryBtn.addEventListener('click', () => {
-        window.location.href = 'category-select.html';
+        window.location.replace('category-select.html');
     });
 
     // New Game: Reset everything
     newGameBtn.addEventListener('click', () => {
         localStorage.clear();
-        window.location.href = 'setup.html';
+        window.location.replace('setup.html');
     });
 });

@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (players.length >= totalPlayers) return;
 
         const index = players.length;
-        const defaultName = `Player ${index + 1}`;
+        const defaultName = `Name ${index + 1}`;
 
         const card = document.createElement('div');
         card.className = 'player-card';
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (categorySelection === 'CREATE_CUSTOM') {
             sessionStorage.setItem('customCategoryReturnUrl', 'setup.html');
             sessionStorage.setItem('skipToCategorySelection', 'true');
-            window.location.href = 'custom-category.html';
+            window.location.replace('custom-category.html');
             return;
         }
         
@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (categorySelection === 'MANAGE_CATEGORIES') {
             sessionStorage.setItem('customCategoryReturnUrl', 'setup.html');
             sessionStorage.setItem('skipToCategorySelection', 'true');
-            window.location.href = 'manage-categories.html';
+            window.location.replace('manage-categories.html');
             return;
         }
         
@@ -293,6 +293,6 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('imposterRound', JSON.stringify(round));
 
         // navigate to reveal
-        window.location.href = 'roles.html';
+        window.location.replace('roles.html');
     });
 });

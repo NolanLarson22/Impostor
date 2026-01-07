@@ -1,6 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     const categoriesList = document.getElementById('categories-list');
     const backBtn = document.getElementById('back-btn');
+    const manageBackBtn = document.getElementById('manage-back-btn');
+    
+    // Handle back button in header
+    const returnUrl = sessionStorage.getItem('manageCategoriesReturn') || 'setup.html';
+    if (manageBackBtn) {
+        manageBackBtn.addEventListener('click', () => {
+            sessionStorage.removeItem('manageCategoriesReturn');
+            window.location.replace(returnUrl);
+        });
+    }
     
     function renderCategories() {
         const customCategories = JSON.parse(localStorage.getItem('customCategories') || '{}');
@@ -52,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Store the category to edit
         sessionStorage.setItem('editingCategory', categoryName);
         sessionStorage.setItem('customCategoryReturnUrl', 'manage-categories.html');
-        window.location.href = 'custom-category.html';
+        window.location.replace('custom-category.html');
     }
     
     function deleteCategory(categoryName) {
@@ -77,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     backBtn.addEventListener('click', () => {
         const returnUrl = sessionStorage.getItem('customCategoryReturnUrl') || 'setup.html';
         sessionStorage.removeItem('customCategoryReturnUrl');
-        window.location.href = returnUrl;
+        window.location.replace(returnUrl);
     });
     
     renderCategories();

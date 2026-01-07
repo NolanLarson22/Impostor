@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const playerNames = JSON.parse(localStorage.getItem('imposterPlayers') || '[]');
     if (!playerNames || playerNames.length === 0) {
         alert('No players found. Please start a new game.');
-        window.location.href = 'setup.html';
+        window.location.replace('setup.html');
         return;
     }
 
@@ -93,14 +93,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Check if user wants to create a custom category
         if (categorySelection === 'CREATE_CUSTOM') {
             sessionStorage.setItem('customCategoryReturnUrl', 'category-select.html');
-            window.location.href = 'custom-category.html';
+            window.location.replace('custom-category.html');
             return;
         }
         
         // Check if user wants to manage categories
         if (categorySelection === 'MANAGE_CATEGORIES') {
             sessionStorage.setItem('customCategoryReturnUrl', 'category-select.html');
-            window.location.href = 'manage-categories.html';
+            window.location.replace('manage-categories.html');
             return;
         }
         
@@ -198,6 +198,6 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('imposterRound', JSON.stringify(round));
 
         // Navigate to reveal
-        window.location.href = 'roles.html';
+        window.location.replace('roles.html');
     });
 });

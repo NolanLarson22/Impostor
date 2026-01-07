@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const round = JSON.parse(localStorage.getItem('imposterRound') || 'null');
     if (!round || !Array.isArray(round.players) || round.players.length === 0) {
         alert('No round data found. Please complete setup first.');
-        window.location.href = 'setup.html';
+        window.location.replace('setup.html');
         return;
     }
 
@@ -68,6 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     startDiscussionBtn.addEventListener('click', () => {
-        window.location.href = 'voting.html';
+        window.location.replace('voting.html');
     });
 });
