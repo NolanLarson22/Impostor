@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#090a0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Impostor">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="/Impostor/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Impostor/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Impostor/icons/favicon-16x16.png">
+    <link rel="shortcut icon" href="/Impostor/icons/favicon.ico">
+    <title>Create Custom Category</title>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-setup.css">
+    <style>
+        .custom-category-container {
+            max-width: 900px;
+            width: 100%;
+        }
+        
+        .category-name-section {
+            margin-bottom: 30px;
+        }
+        
+        .category-name-section label {
+            display: block;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .category-name-input {
+            width: 100%;
+            font-family: 'Bangers', cursive;
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            padding: 0.8rem 1.5rem;
+            border-radius: 15px;
+            background: #333;
+            color: white;
+            border: 3px solid #ff0040;
+            box-sizing: border-box;
+        }
+        
+        .category-name-input:focus {
+            outline: none;
+            border-color: #ff4080;
+        }
+        
+        .words-section {
+            margin-bottom: 30px;
+        }
+        
+        .words-section h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .words-section > p {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+        
+        .word-entry {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 0, 64, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .word-entry label {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            display: block;
+            padding-right: 120px;
+        }
+        
+        .word-input {
+            width: 100%;
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            background: rgba(51, 51, 51, 0.8);
+            color: white;
+            border: 2px solid #ff0040;
+            margin-bottom: 1rem;
+            box-sizing: border-box;
+        }
+        
+        .word-input:focus {
+            outline: none;
+            border-color: #ff4080;
+        }
+        
+        .hints-container {
+            margin-top: 1rem;
+            padding-left: 0;
+        }
+        
+        .hints-container label {
+            display: block;
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            opacity: 0.9;
+            white-space: nowrap;
+        }
+        
+        .hint-input {
+            width: 100%;
+            font-family: 'Bangers', cursive;
+            font-size: 1.5rem;
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            background: rgba(51, 51, 51, 0.6);
+            color: white;
+            border: 2px solid rgba(255, 0, 64, 0.4);
+            margin-bottom: 0.8rem;
+            box-sizing: border-box;
+        }
+        
+        .hint-input:focus {
+            outline: none;
+            border-color: #ff0040;
+        }
+        
+        .add-hint-btn, .remove-word-btn {
+            font-family: 'Bangers', cursive;
+            font-size: 1.3rem;
+            background: linear-gradient(145deg, #ff0040, #cc0033);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            letter-spacing: 0.1em;
+            transition: all 0.2s;
+        }
+        
+        .add-hint-btn:hover, .remove-word-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(145deg, #ff4080, #ff0040);
+        }
+        
+        .remove-word-btn {
+            position: absolute;
+            top: 0.8rem;
+            right: 1.5rem;
+            float: none;
+            background: linear-gradient(145deg, #e74c3c, #c0392b);
+        }
+        
+        .remove-word-btn:hover {
+            background: linear-gradient(145deg, #ff6b5a, #e74c3c);
+        }
+        
+        .add-word-btn {
+            width: 100%;
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(145deg, #ff0040, #cc0033);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(255, 0, 64, 0.4);
+        }
+        
+        .add-word-btn:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(145deg, #ff4080, #ff0040);
+        }
+        
+        .validation-message {
+            background: rgba(231, 76, 60, 0.2);
+            border: 2px solid #e74c3c;
+            color: #fff;
+            padding: 1.2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            display: none;
+            font-size: 1.5rem;
+        }
+        
+        .validation-message.show {
+            display: block;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .button-group button {
+            font-family: 'Bangers', cursive;
+            font-size: clamp(1.4rem, 4vw, 2.2rem);
+            padding: clamp(0.8rem, 2vw, 1.2rem) clamp(2rem, 5vw, 4rem);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: all 0.3s;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        .button-group button:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+        
+        .button-group button:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+        
+        #cancel-btn {
+            background: linear-gradient(145deg, #95a5a6, #7f8c8d);
+            color: white;
+        }
+        
+        #cancel-btn:hover {
+            background: linear-gradient(145deg, #a8b8b9, #95a5a6);
+        }
+        
+        #save-category-btn {
+            background: linear-gradient(145deg, #ff0040, #cc0033);
+            color: white;
+        }
+        
+        #save-category-btn:hover {
+            background: linear-gradient(145deg, #ff4080, #ff0040);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="back-button" id="custom-back-btn" aria-label="Back"></button>
+        <h1>IMPOSTOR</h1>
+        <h2>Create Custom Category</h2>
+        
+        <div class="step">
+            <div class="custom-category-container">
+            <div class="validation-message" id="validation-message"></div>
+            
+            <div class="category-name-section">
+                <label for="category-name">Category Name:</label>
+                <input type="text" id="category-name" class="category-name-input" placeholder="Enter category name...">
+            </div>
+            
+            <div class="words-section">
+                <h3>Words (minimum 10 required)</h3>
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 15px;">
+                    Each word must have at least one hint word
+                </p>
+                <div id="words-container"></div>
+                <button class="add-word-btn" id="add-word-btn">+ Add Word</button>
+            </div>
+            
+            <div class="button-group">
+                <button class="btn" id="cancel-btn">Cancel</button>
+                <button class="btn" id="save-category-btn">Save Category</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <script type="module" src="script-custom-category.js"></script>
+</body>
+</html>

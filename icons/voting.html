@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Impostor - Voting & Reveal</title>
+        <!-- 1. The primary color for Safari 15+ -->
+    <meta name="theme-color" content="#090a0f">
+    <!-- 2. Legacy Apple tags for Home Screen apps -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Impostor">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="/Impostor/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Impostor/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Impostor/icons/favicon-16x16.png">
+    <link rel="shortcut icon" href="/Impostor/icons/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-voting.css">
+</head>
+<body>
+    <div class="container">
+        <button class="back-button" onclick="window.location.replace('roles.html')" aria-label="Back to roles"></button>
+        <h1>IMPOSTOR</h1>
+        <h2>Who Did the Group Vote Out?</h2>
+        <p class="instruction">Tap the players everyone suspects.</p>
+        <div id="vote-counter" class="vote-counter"></div>
+        <button id="submit-votes-btn" class="submit-votes-btn hidden">SUBMIT VOTES</button>
+
+        <div id="players-grid" class="players-grid"></div>
+
+        <div id="result-screen" class="result-overlay hidden">
+            <div class="result-content">
+                <h3 id="vote-result"></h3>
+                <div class="vote-summary">
+                    <div class="voted-out">Voted Out: <span id="voted-name"></span></div>
+                    <div class="real-imposter">Real Impostor(s): <span id="imposter-name"></span></div>
+                    <div class="real-word">The Word Was: <span id="real-word"></span></div>
+                </div>
+                <div id="score-change" class="score-change"></div>
+                <h4>Leaderboard</h4>
+                <div id="leaderboard" class="leaderboard"></div>
+                <div class="result-buttons">
+                    <button id="next-round-btn" class="big-button">NEXT ROUND</button>
+                    <button id="change-category-btn" class="secondary-button">CHOOSE NEW CATEGORY</button>
+                    <button id="new-game-btn" class="secondary-button">NEW GAME</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="script-voting.js"></script>
+</body>
+</html>

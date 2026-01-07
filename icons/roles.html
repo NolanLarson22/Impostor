@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Impostor - Reveal Your Word</title>
+     <!-- 1. The primary color for Safari 15+ -->
+    <meta name="theme-color" content="#090a0f">
+    <!-- 2. Legacy Apple tags for Home Screen apps -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Impostor">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="/Impostor/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Impostor/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Impostor/icons/favicon-16x16.png">
+    <link rel="shortcut icon" href="/Impostor/icons/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-roles.css">
+</head>
+<body>
+    <div class="container">
+        <button class="back-button" onclick="window.location.replace('setup.html')" aria-label="Back to setup"></button>
+        <h1>IMPOSTOR</h1>
+        <h2>Tap Your Name to See Your Secret Word</h2>
+        <p class="instruction">
+            Pass the device to each player one by one.<br>
+            <strong>Do NOT let anyone else see your screen!</strong>
+        </p>
+
+        <div id="players-grid" class="players-grid"></div>
+
+        <!-- Full-screen reveal -->
+        <div id="reveal-screen" class="reveal-overlay hidden">
+            <div class="reveal-content" id="reveal-content">
+                <div id="category-name" class="category-label"></div>
+                <div id="imposter-title" class="imposter-title hidden">IMPOSTOR</div>
+                <div id="crew-word" class="crew-word"></div>
+                <p id="imposter-hint" class="hint-text hidden">Hint: <span id="hint-word"></span></p>
+                <button id="pass-btn" class="big-button">PRESS TO FLIP</button>
+            </div>
+        </div>
+
+        <button id="start-discussion-btn" class="big-button hidden">VOTE</button>
+    </div>
+
+    <script src="script-roles.js"></script>
+</body>
+</html>

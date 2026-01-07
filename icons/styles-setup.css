@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    background-color: #090a0f; /* Fallback for gradient top */
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    background-attachment: fixed;
+    font-family: 'Bangers', cursive;
+    color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding:
+        max(2rem, env(safe-area-inset-top))
+        max(1rem, env(safe-area-inset-right))
+        max(2rem, env(safe-area-inset-bottom))
+        max(1rem, env(safe-area-inset-left));
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+        radial-gradient(2px 2px at 150px 100px, #eee, transparent);
+    background-repeat: repeat;
+    background-size: 300px 300px;
+    animation: stars 30s linear infinite;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes stars {
+    from { transform: translateY(0); }
+    to { transform: translateY(-300px); }
+}
+
+.container {
+    text-align: center;
+    z-index: 2;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    top: -0.5rem;
+    left: -0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fff;
+    font-size: 1.3rem;
+    z-index: 10;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.back-button::before {
+    content: '←';
+}
+
+h1 {
+    font-family: 'Creepster', cursive;
+    font-size: clamp(4rem, 12vw, 10rem);
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    text-shadow: 
+        0 0 20px rgba(255, 0, 64, 0.8),
+        0 0 40px rgba(255, 0, 64, 0.6),
+        0 0 60px rgba(255, 0, 64, 0.4);
+    animation: titleGlow 3s ease-in-out infinite alternate;
+    overflow: visible;
+    line-height: 1.2;
+}
+
+@keyframes titleGlow {
+    from { filter: hue-rotate(0deg); }
+    to { filter: hue-rotate(30deg); }
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    letter-spacing: 0.1em;
+}
+
+.step {
+    background: transparent;
+    padding: 3rem;
+    border-radius: 20px;
+    backdrop-filter: none;
+    box-shadow: none;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+label {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+select {
+    font-family: 'Bangers', cursive;
+    font-size: 2rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 15px;
+    background: #333;
+    color: white;
+    border: 3px solid #ff0040;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+p {
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    margin-bottom: 2rem;
+    letter-spacing: 0.1em;
+}
+
+.players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 0 1rem;
+}
+
+.player-card {
+    background: linear-gradient(145deg, #ff0040, #cc0033);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 15px 40px rgba(255, 0, 64, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.player-card:hover {
+    transform: translateY(-8px);
+}
+
+.player-card input {
+    font-family: 'Bangers', cursive;
+    font-size: 2rem;
+    text-align: center;
+    background: transparent;
+    border: none;
+    color: white;
+    width: 100%;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+    border-bottom: 3px solid rgba(255,255,255,0.5);
+    padding: 0.5rem 0;
+}
+
+.player-card input:focus {
+    outline: none;
+    border-bottom: 3px solid white;
+}
+
+.player-number {
+    font-size: 1.6rem;
+    opacity: 0.8;
+    letter-spacing: 0.1em;
+}
+
+.controls {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.big-button {
+    font-family: 'Bangers', cursive;
+    font-size: 2.2rem;
+    padding: 1.2rem 4rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    transition: all 0.3s;
+    background: linear-gradient(145deg, #ff0040, #cc0033);
+    box-shadow: 0 15px 35px rgba(255,0,64,0.5);
+    color: #ffffff;
+    width: 100%;
+    max-width: 100%;
+}
+
+.big-button:hover:not(:disabled) {
+    transform: translateY(-5px) scale(1.05);
+    background: linear-gradient(145deg, #ff4080, #ff0040);
+}
+
+.big-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
