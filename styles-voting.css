@@ -326,7 +326,7 @@ h4 { font-size: clamp(2rem, 6vw, 2.5rem); margin: 2rem 0 1rem; }
     gap: 0.5rem;
     flex-shrink: 0;
     white-space: nowrap;
-    margin-left: auto;
+    margin-left: 1rem;
 }
 
 .score-gain {
@@ -335,6 +335,7 @@ h4 { font-size: clamp(2rem, 6vw, 2.5rem); margin: 2rem 0 1rem; }
     font-weight: bold;
     flex-shrink: 0;
     min-width: 2.5ch;
+    margin-left: 0.5rem;
 }
 
 .score-loss {
@@ -343,6 +344,7 @@ h4 { font-size: clamp(2rem, 6vw, 2.5rem); margin: 2rem 0 1rem; }
     font-weight: bold;
     flex-shrink: 0;
     min-width: 2.5ch;
+    margin-left: 0.5rem;
 }
 
 .result-buttons {
