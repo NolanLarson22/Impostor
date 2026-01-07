@@ -24,7 +24,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 2rem 1rem;
     overflow-y: auto;
     position: relative;
 }
