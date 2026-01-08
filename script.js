@@ -291,18 +291,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const words = Object.keys(allGameData[category] || {});
         const usedByCategory = JSON.parse(localStorage.getItem('usedWordsByCategory') || '{}');
         const used = usedByCategory[category] || [];
-        const available = words.filter(w => !used.includes(w));
+        let available = words.filter(w => !used.includes(w));
 
         if (available.length === 0) {
-            alert('You have gone through all the words in this category. Please choose a new category.');
-            return;
+            // Silently reset - this is initial game start, no need to alert
+            usedByCategory[category] = [];
+            localStorage.setItem('usedWordsByCategory', JSON.stringify(usedByCategory));
+            available = words; // All words are now available
         }
 
         const selectedWord = available[Math.floor(Math.random() * available.length)];
 
         // mark used in category-level tracking (for future games)
-        used.push(selectedWord);
-        usedByCategory[category] = used;
+        const categoryUsed = usedByCategory[category] || [];
+        categoryUsed.push(selectedWord);
+        usedByCategory[category] = categoryUsed;
         localStorage.setItem('usedWordsByCategory', JSON.stringify(usedByCategory));
 
         // Initialize session-level used words (for current game)

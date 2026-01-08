@@ -79,12 +79,6 @@ body::before {
     z-index: 10;
 }
 
-.back-button:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.5);
-    transform: scale(1.1);
-}
-
 .back-button::before {
     content: '←';
 }
@@ -172,10 +166,6 @@ p {
     transition: transform 0.2s;
 }
 
-.player-card:hover {
-    transform: translateY(-8px);
-}
-
 .player-card input {
     font-family: 'Bangers', cursive;
     font-size: clamp(2.5rem, 7vw, 4rem);
@@ -222,11 +212,6 @@ p {
     color: #ffffff;
     width: 100%;
     max-width: 100%;
-}
-
-.big-button:hover:not(:disabled) {
-    transform: translateY(-5px) scale(1.05);
-    background: linear-gradient(145deg, #ff4080, #ff0040);
 }
 
 .big-button:disabled {

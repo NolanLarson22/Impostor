@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add "Create Custom Category" option
     const createOpt = document.createElement('option');
     createOpt.value = 'CREATE_CUSTOM';
-    createOpt.textContent = 'New Category';
+    createOpt.textContent = 'Create New Category';
     categorySelect.appendChild(createOpt);
     
     // Add "Manage Categories" option
@@ -142,11 +142,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Get words for category and filter used
         const words = Object.keys(allGameData[category] || {});
-        const available = words.filter(w => !sessionUsed.includes(w));
+        let available = words.filter(w => !sessionUsed.includes(w));
 
         if (available.length === 0) {
-            alert('You have gone through all the words in this category too. Please choose a different category.');
-            return;
+            // Silently reset - user is actively choosing category, just reset and continue
+            localStorage.setItem('sessionUsedWords', JSON.stringify([]));
+            available = words; // All words are now available
         }
 
         const selectedWord = available[Math.floor(Math.random() * available.length)];

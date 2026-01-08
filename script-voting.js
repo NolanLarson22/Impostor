@@ -207,10 +207,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Get words for category and filter used
         const words = Object.keys(allGameData[category] || {});
-        const available = words.filter(w => !sessionUsed.includes(w));
+        let available = words.filter(w => !sessionUsed.includes(w));
 
         if (available.length === 0) {
-            alert('You have gone through all the words in this category. Please click "Choose New Category" to continue playing with a different category.');
+            alert('You have gone through all the words in this category! Please choose a new category or continue with this one.');
+            // Reset the session used words for this category
+            localStorage.setItem('sessionUsedWords', JSON.stringify([]));
+            // Redirect to category selection page (scores are preserved in localStorage)
+            window.location.replace('category-select.html');
             return;
         }
 

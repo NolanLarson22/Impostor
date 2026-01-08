@@ -79,12 +79,6 @@ body::before {
     z-index: 10;
 }
 
-.back-button:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.5);
-    transform: scale(1.1);
-}
-
 .back-button::before {
     content: '←';
 }
@@ -136,11 +130,6 @@ h2 {
     text-align: center;
 }
 
-.player-card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 25px 60px rgba(255, 0, 64, 0.7);
-}
-
 .player-card.revealed {
     opacity: 0.6;
     transform: scale(0.95);
@@ -177,11 +166,11 @@ h2 {
 }
 
 .reveal-content.crewmate-glow {
-    box-shadow: 0 0 80px #00ff00, 0 0 120px #00ff0080;
+    box-shadow: 0 0 80px #ff0040, 0 0 120px #ff0040;
 }
 
 .reveal-content.imposter-glow {
-    box-shadow: 0 0 80px #00ff00, 0 0 120px #00ff0080;
+    box-shadow: 0 0 80px #ff0040, 0 0 120px #ff0040;
 }
 
 @keyframes dramaticEntrance {
@@ -250,11 +239,6 @@ h2 {
     color: #fff;
     box-shadow: 0 15px 35px rgba(255,0,64,0.5);
     transition: all 0.3s;
-}
-
-.big-button:hover {
-    transform: translateY(-5px) scale(1.05);
-    background: linear-gradient(145deg, #ff4080, #ff0040);
 }
 
 #start-discussion-btn {
