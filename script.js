@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentCountSpan = document.getElementById('currentCount');
     const totalCountSpan = document.getElementById('totalCount');
     const proceedCategoryBtn = document.getElementById('proceedCategoryBtn');
+    const errorMessage = document.getElementById('error-message');
 
     const categoryStep = document.getElementById('category-step');
     const categorySelect = document.getElementById('category');
@@ -183,7 +184,37 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateProceedButton() {
         const allHaveNames = players.every(p => p.name && p.name.trim() !== '');
         const fullCount = players.length === totalPlayers;
-        proceedCategoryBtn.disabled = !(fullCount && allHaveNames);
+        
+        // Check for duplicate names and highlight them
+        const names = players.map(p => p.name.trim().toLowerCase());
+        const hasDuplicates = names.some((name, idx) => names.indexOf(name) !== idx);
+        
+        // Highlight duplicate inputs
+        const inputs = playersContainer.querySelectorAll('input');
+        inputs.forEach((input, idx) => {
+            const currentName = players[idx].name.trim().toLowerCase();
+            const isDuplicate = names.filter(n => n === currentName).length > 1 && currentName !== '';
+            if (isDuplicate) {
+                input.style.borderBottom = '3px solid #ff0040';
+                input.style.color = '#ff4444';
+            } else {
+                input.style.borderBottom = '3px solid rgba(255,255,255,0.5)';
+                input.style.color = 'white';
+            }
+        });
+        
+        // Show error message
+        if (hasDuplicates) {
+            errorMessage.textContent = '⚠️ Each player must have a unique name!';
+            errorMessage.style.display = 'block';
+        } else if (!allHaveNames) {
+            errorMessage.textContent = '⚠️ All players must have a name!';
+            errorMessage.style.display = 'block';
+        } else {
+            errorMessage.style.display = 'none';
+        }
+        
+        proceedCategoryBtn.disabled = !(fullCount && allHaveNames && !hasDuplicates);
     }
 
     proceedCategoryBtn.addEventListener('click', () => {

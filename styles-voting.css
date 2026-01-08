@@ -162,8 +162,8 @@ h2 {
 /* Responsive grid for player cards */
 .players-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
     margin: 2rem 0;
     padding: 0 0.5rem;
 }
@@ -195,8 +195,9 @@ h2 {
 
 .player-name {
     font-size: clamp(2rem, 6vw, 2.8rem);
-    letter-spacing: 0.15em;
+    letter-spacing: 0.05em;
     text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
+    word-break: break-word;
 }
 
 /* Result overlay */

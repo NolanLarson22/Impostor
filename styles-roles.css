@@ -127,8 +127,8 @@ h2 {
 /* Player name cards */
 .players-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
     margin: 3rem 0;
 }
 
@@ -153,9 +153,10 @@ h2 {
 }
 
 .player-name {
-    font-size: 2.8rem;
-    letter-spacing: 0.15em;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: 0.05em;
     text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
+    word-break: break-word;
 }
 
 /* Reveal overlay */
@@ -186,7 +187,7 @@ h2 {
 }
 
 .reveal-content.imposter-glow {
-    box-shadow: 0 0 80px #ff0040, 0 0 120px #ff004080;
+    box-shadow: 0 0 80px #00ff00, 0 0 120px #00ff0080;
 }
 
 @keyframes dramaticEntrance {
@@ -217,18 +218,22 @@ h2 {
 
 /* Crewmate word - big white, no glow */
 .crew-word {
-    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-size: clamp(2rem, 6vw, 5rem);
     color: #ffffff;
-    letter-spacing: 0.4em;
+    letter-spacing: 0.15em;
     margin: 3rem 0;
     font-weight: bold;
+    max-width: 100%;
+    padding: 0 1rem;
 }
 
 /* Hint text for imposter */
 .hint-text {
     font-size: clamp(1.5rem, 4vw, 3rem);
     margin: 3rem 0 2rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
+    max-width: 100%;
+    padding: 0 1rem;
 }
 
 #hint-word {
