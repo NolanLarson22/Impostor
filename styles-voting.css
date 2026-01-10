@@ -189,14 +189,13 @@ h2 {
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     background-attachment: fixed;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     z-index: 100;
     padding: 1rem;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
-    touch-action: pan-y;
 }
 
 .result-overlay::before {
@@ -222,14 +221,12 @@ h2 {
 .result-content {
     text-align: center;
     padding: 2.5rem 2rem;
-    max-width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
     animation: dramaticEntrance 1s ease-out;
     position: relative;
     z-index: 1;
-    pointer-events: auto;
 }
 
 @keyframes dramaticEntrance {
