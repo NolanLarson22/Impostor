@@ -194,6 +194,9 @@ h2 {
     z-index: 100;
     padding: 1rem;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
 }
 
 .result-overlay::before {
@@ -222,9 +225,11 @@ h2 {
     max-width: 90%;
     max-height: 90vh;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     animation: dramaticEntrance 1s ease-out;
     position: relative;
     z-index: 1;
+    pointer-events: auto;
 }
 
 @keyframes dramaticEntrance {
@@ -286,6 +291,7 @@ h4 { font-size: clamp(2rem, 6vw, 2.5rem); margin: 2rem 0 1rem; }
     border-radius: 20px;
     padding: 2rem;
     margin: 1rem 0 3rem;
+    -webkit-overflow-scrolling: touch;
     max-height: 300px;
     overflow-y: auto;
     display: flex;
